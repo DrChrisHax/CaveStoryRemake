@@ -30,9 +30,9 @@ public:
     SDL_Renderer* getRenderer() const;
 
 private:
-    SDL_Window* pWindow;
-    SDL_Renderer* pRenderer;
-    std::map<std::string, SDL_Surface*> pSpriteSheets;
+    SDL_Window* mWindow;
+    SDL_Renderer* mRenderer;
+    std::map<std::string, SDL_Surface*> mSpriteSheets;
 };
 
 

@@ -4,29 +4,29 @@
 
 Graphics::Graphics() {
     //int Width, int Height, int Flags, Refernce to window, Reference to renderer
-    SDL_CreateWindowAndRenderer(640, 480, 0, &this->pWindow, &this->pRenderer);
-    SDL_SetWindowTitle(this->pWindow, "Cavestory");
+    SDL_CreateWindowAndRenderer(640, 480, 0, &this->mWindow, &this->mRenderer);
+    SDL_SetWindowTitle(this->mWindow, "Cavestory");
 }
 Graphics::~Graphics() {
-    SDL_DestroyWindow(this->pWindow);
+    SDL_DestroyWindow(this->mWindow);
 }
 SDL_Surface* Graphics::loadImage(const std::string& filePath) {
-    if(this->pSpriteSheets.count(filePath) == 0) {
-        this->pSpriteSheets[filePath] = IMG_Load(filePath.c_str());
+    if(this->mSpriteSheets.count(filePath) == 0) {
+        this->mSpriteSheets[filePath] = IMG_Load(filePath.c_str());
     }
-    return this->pSpriteSheets[filePath];
+    return this->mSpriteSheets[filePath];
 }
 void Graphics::blitSurface(SDL_Texture* texture, SDL_Rect* sourceRectangle, SDL_Rect* destinationRectangle) {
-    SDL_RenderCopy(this->pRenderer, texture, sourceRectangle, destinationRectangle);
+    SDL_RenderCopy(this->mRenderer, texture, sourceRectangle, destinationRectangle);
 }
 void Graphics::render() {
-    SDL_RenderPresent(this->pRenderer);
+    SDL_RenderPresent(this->mRenderer);
 }
 void Graphics::clear() {
-    SDL_RenderClear(this->pRenderer);
+    SDL_RenderClear(this->mRenderer);
 }
 SDL_Renderer* Graphics::getRenderer() const {
-    return this->pRenderer;
+    return this->mRenderer;
 }
 
 
