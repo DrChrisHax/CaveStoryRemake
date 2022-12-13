@@ -13,7 +13,21 @@ public:
     Graphics();
     ~Graphics();
 
-    SDL_Surface* loadImage(const::std string& filePath_);
+    //Loads sprite map if it does not already exist
+    //Each image is only ever loaded once
+    SDL_Surface* loadImage(const std::string& filePath);
+    
+    //Draws a texture to the screen
+    void blitSurface(SDL_Texture* texture, SDL_Rect* sourceRectangle, SDL_Rect* destinationRectangle);
+
+    //Renders everything to the screen
+    void render();
+
+    //Clears the screen
+    void clear();
+
+    //Returns the renderer
+    SDL_Renderer* getRenderer() const;
 
 private:
     SDL_Window* pWindow;
