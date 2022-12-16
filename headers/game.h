@@ -1,7 +1,9 @@
+//Chris Manlove
 #ifndef GAME_H
 #define GAME_H
 
-class Graphics; //Forward declare
+#include "sprite.h"
+
 
 class Game {
 public:
@@ -11,6 +13,10 @@ private:
     void gameLoop();
     void draw(Graphics& graphics);
     void update(float elapsedTime);
+
+    Sprite mPlayer;
+
+
 };
 
 

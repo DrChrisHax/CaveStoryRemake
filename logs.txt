@@ -1,8 +1,0 @@
-12/6/22
--Set up basic build structure
--Implemented Graphics class and header
--Implemented game loop
--Events(input, closing window, etc)
--Game class
-
-12/8/2022

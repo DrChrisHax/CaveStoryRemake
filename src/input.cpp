@@ -1,5 +1,5 @@
+//Chris Manlove
 #include "input.h"
-
 
 //Called at each new frame to reset
 //keys that are not relevant
