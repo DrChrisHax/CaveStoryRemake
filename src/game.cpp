@@ -4,7 +4,6 @@
 #include "game.h"
 #include "input.h"
 
-
 namespace {
     const int FPS = 60; //Change to 50 if physics errors later on
     const int MAX_FRAME_TIME = 5 * 1000 / FPS;
@@ -21,7 +20,10 @@ void Game::gameLoop() {
     Input input;
     SDL_Event event;
 
-    this->mPlayer = Sprite(graphics, "../contents/sprites/MyChar.png", 0, 0, 16, 16, 100, 100);
+    this->mPlayer = AnimatedSprite(graphics, "../contents/sprites/MyChar.png", 0, 0, 16, 16, 100, 100, 100);
+    this->mPlayer.setupAnimation();
+    this->mPlayer.playAnimation("RunRight");
+
     
     int lastUpdateTime = SDL_GetTicks();
     //Start game loop
@@ -59,5 +61,6 @@ void Game::draw(Graphics& graphics) {
 
 }
 void Game::update(float elapsedTime) {
+    this->mPlayer.update(elapsedTime);
 
 }

@@ -2,11 +2,12 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-#include "graphics.h"
+#include <SDL2/SDL.h>
 
-//Forward declare SDL objects
-struct SDL_Rect;
-struct SDL_Texture;
+#include <string>
+
+#include "globals.h"
+#include "graphics.h"
 
 class Sprite {
 public:
@@ -15,9 +16,10 @@ public:
     virtual ~Sprite();
     virtual void update();
     void draw(Graphics& graphics, int x, int y);
-private:
+protected:
     SDL_Rect mSourceRect;
     SDL_Texture* mSpriteSheet;
+private:
 
     float mPosX, mPosY;
 };
