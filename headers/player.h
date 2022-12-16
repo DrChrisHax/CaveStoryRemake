@@ -1,5 +1,8 @@
+//Chris Manlove
 #ifndef PLAYER_H
 #define PLAYER_H
+
+#include "animatedsprite.h"
 
 class Player : public AnimatedSprite{
 public:

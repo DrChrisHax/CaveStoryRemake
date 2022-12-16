@@ -1,5 +1,4 @@
 //Chris Manlove
-#include <SDL2/SDL.h>
 #include "sprite.h"
 #include "globals.h"
 

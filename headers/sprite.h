@@ -2,10 +2,6 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-#include <SDL2/SDL.h>
-
-#include <string>
-
 #include "globals.h"
 #include "graphics.h"
 
@@ -17,11 +13,10 @@ public:
     virtual void update();
     void draw(Graphics& graphics, int x, int y);
 protected:
+    float mPosX, mPosY;
     SDL_Rect mSourceRect;
     SDL_Texture* mSpriteSheet;
 private:
-
-    float mPosX, mPosY;
 };
 
 

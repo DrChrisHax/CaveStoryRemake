@@ -20,9 +20,8 @@ void Game::gameLoop() {
     Input input;
     SDL_Event event;
 
-    this->mPlayer = AnimatedSprite(graphics, "../contents/sprites/MyChar.png", 0, 0, 16, 16, 100, 100, 100);
-    this->mPlayer.setupAnimation();
-    this->mPlayer.playAnimation("RunRight");
+    this->mPlayer = Player(graphics, 100, 100);
+
 
     
     int lastUpdateTime = SDL_GetTicks();
@@ -55,7 +54,7 @@ void Game::gameLoop() {
 void Game::draw(Graphics& graphics) {
     graphics.clear();
 
-    this->mPlayer.draw(graphics, 100, 100);
+    this->mPlayer.draw(graphics);
 
     graphics.render();
 
