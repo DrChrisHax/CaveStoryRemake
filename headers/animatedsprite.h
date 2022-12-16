@@ -17,8 +17,6 @@ public:
 
     void update(int elapsedTime);
     void draw(Graphics& graphics, int x, int y);
-    void setupAnimation();
-
 
 protected:
     double mTimeToUpdate;
@@ -32,7 +30,8 @@ protected:
     void resetAnimation();
     void stopAnimation();
     void setVisible(bool visible);
-    void animationDone(std::string currentAnimation);
+    virtual void animationDone(std::string currentAnimation) = 0;
+    virtual void setupAnimation() = 0;
     
 
 private:
