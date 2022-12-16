@@ -11,9 +11,19 @@ public:
     void draw(Graphics &graphics);
     void update(float elapsedTime);
 
+    //Moves player negative dx (Left)
+    void moveLeft();
+    //Moves player positive dx (Right)
+    void moveRight();
+    //Stops moving player
+    void stopMoving();
+
     virtual void animationDone(std::string currentAnimation);
     virtual void setupAnimation();
 private:
+    float mdx, mdy; //Change in x and y position
+
+    Direction mDirection;
 };
 
 #endif

@@ -38,10 +38,20 @@ void Game::gameLoop() {
             else if(event.type == SDL_KEYUP) {
                 input.keyUpEvent(event);
             }
-            else if(event.type == SDL_QUIT) return; //Closes the game window (X buton clicked)
+            else if(event.type == SDL_QUIT) return; //Closes the game window (X button clicked)
 
         }
-        if(input.wasKeyPressed(SDL_SCANCODE_ESCAPE)) return; //Closes the game window (escape pressed)
+        if(input.wasKeyPressed(SDL_SCANCODE_ESCAPE)) { return; } //Closes the game window (escape pressed)
+        else if(input.isKeyHeld(SDL_SCANCODE_LEFT) ||
+                input.isKeyHeld(SDL_SCANCODE_A)){ this->mPlayer.moveLeft();  } //Moves Left if left arrow or A is held
+        else if(input.isKeyHeld(SDL_SCANCODE_RIGHT)||
+                input.isKeyHeld(SDL_SCANCODE_D)){ this->mPlayer.moveRight(); } //Moves Right if right arrow or D is held
+        
+        if(!(input.isKeyHeld(SDL_SCANCODE_RIGHT) || input.isKeyHeld(SDL_SCANCODE_A) || 
+             input.isKeyHeld(SDL_SCANCODE_LEFT)  || input.isKeyHeld(SDL_SCANCODE_D))) {
+                this->mPlayer.stopMoving();
+            }
+
 
         int currentTimeMS = SDL_GetTicks();
         int elapsedTimeMS = currentTimeMS - lastUpdateTime;
