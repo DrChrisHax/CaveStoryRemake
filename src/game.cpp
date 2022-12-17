@@ -21,8 +21,7 @@ void Game::gameLoop() {
     SDL_Event event;
 
     this->mPlayer = Player(graphics, 100, 100);
-
-
+    this->mLevel = Level("map 1", Vector2(100, 100), graphics);
     
     int lastUpdateTime = SDL_GetTicks();
     //Start game loop
@@ -64,6 +63,7 @@ void Game::gameLoop() {
 void Game::draw(Graphics& graphics) {
     graphics.clear();
 
+    this->mLevel.draw(graphics);
     this->mPlayer.draw(graphics);
 
     graphics.render();
@@ -71,5 +71,7 @@ void Game::draw(Graphics& graphics) {
 }
 void Game::update(float elapsedTime) {
     this->mPlayer.update(elapsedTime);
+    this->mLevel.update(elapsedTime);
+
 
 }

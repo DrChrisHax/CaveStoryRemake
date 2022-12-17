@@ -3,6 +3,7 @@
 #define GAME_H
 
 #include "player.h"
+#include "level.h"
 
 class Game {
 public:
@@ -15,7 +16,7 @@ private:
 
     Player mPlayer;
 
-
+    Level mLevel;
 };
 
 
